@@ -96,7 +96,7 @@
           <autoPull>always</autoPull>
           <images>
             <image>
-              <name>evryfs/tac/spring-boot-admin:${project.version}-${git.commit.id.abbrev}</name>
+              <name>evryfs/spring-boot-admin:${project.version}-${git.commit.id.abbrev}</name>
               <build>
                 <assembly>
                   <inline>
