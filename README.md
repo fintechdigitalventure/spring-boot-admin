@@ -1,5 +1,5 @@
-# docker-image
+[![Docker Repository on Quay](https://quay.io/repository/evryfs/spring-boot-admin/status "Docker Repository on Quay")](https://quay.io/repository/evryfs/spring-boot-admin)
 
-Info on what
+# Spring Boot Admin
 
-# badges
+Packaging of [Codecentic Spring Boot Admin](https://github.com/codecentric/spring-boot-admin)
