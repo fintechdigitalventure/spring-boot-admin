@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "! ( contains(github.event.head_commit.message, 'maven-release-plugin') || contains(github.event.head_commit.message, 'skip ci') )"
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
     #container: maven:3-adoptopenjdk-15
     steps:
     - name: checkout
@@ -24,7 +24,6 @@ jobs:
       with:
         distribution: temurin
         java-version: 11
-        overwrite-settings: false
 
     - name: Set up Maven
       uses: stCarolas/setup-maven@v4.1
