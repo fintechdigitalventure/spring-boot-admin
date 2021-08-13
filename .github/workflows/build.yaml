@@ -17,6 +17,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: fix git tags
+      run: |
+        # https://github.com/actions/checkout/issues/290
+        git fetch --tags --force
+
     - uses: brpaz/hadolint-action@v1.1.0
 
     - name: Setup java
