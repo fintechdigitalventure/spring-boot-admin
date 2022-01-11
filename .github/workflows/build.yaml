@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-    #container: maven:3-adoptopenjdk-15
+    outputs:
+      app-version: ${{ steps.app-version.outputs.version }}
     steps:
     - name: checkout
       uses: actions/checkout@v2.4.0
@@ -38,5 +39,21 @@ jobs:
         password: ${{ secrets.QUAY_PASSWORD }}
 
     - name: Run build
+      run: mvn clean deploy -Ddocker.registry=quay.io
+
+    - name: export version
+      id: app-version
+      run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Install kind
+      uses: helm/kind-action@v1.2.0
+      with:
+        node_image: "kindest/node:v1.23.0"
+
+    - name: install image
       run: |
-        mvn clean deploy -Ddocker.registry=quay.io
+        helm install test spring-boot-admin --wait --repo https://evryfs.github.io/helm-charts/ --set image.tag=${{ needs.build.outputs.app-version }}
