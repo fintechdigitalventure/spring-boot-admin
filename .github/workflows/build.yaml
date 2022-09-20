@@ -26,7 +26,7 @@ jobs:
     - uses: brpaz/hadolint-action@v1.1.0
 
     - name: Setup java
-      uses: evryfs/composite-java-action@v0.3.8
+      uses: evryfs/composite-java-action@v0.3.9
       with:
         java-version: 17
         cache: true
