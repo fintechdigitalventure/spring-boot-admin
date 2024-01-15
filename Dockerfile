@@ -1,4 +1,4 @@
-FROM quay.io/evryfs/base-java-service:java17
+FROM quay.io/evryfs/base-java-service:java17-20240115
 LABEL maintainer="David J. M. Karlsen <david.karlsen@tietoevry.com>"
 ARG VERSION
 COPY maven/ /app/
