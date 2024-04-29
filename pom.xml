@@ -16,7 +16,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>17</java.version>
-    <start-class>com.tietoevry.fss.baas.AdminApplication</start-class>
+    <start-class>com.oxxo.fintech.admin.AdminApplication</start-class>
     <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
 
