@@ -39,9 +39,7 @@ jobs:
         password: ${{ secrets.GLOBAL_DOCKER_TOKEN }}
 
     - name: Run build
-      run:  |
-        mvn clean install
-        ls -ltr | egrep -i "java|jar|exec"
+      run:  mvn clean install
       #run: mvn clean deploy -Ddocker.registry=ghcr.io/fintechdigitalventure
 
     - name: export version
