@@ -42,6 +42,9 @@ jobs:
       run:  mvn clean install
       #run: mvn clean deploy -Ddocker.registry=ghcr.io/fintechdigitalventure
 
+    - name: Look for artifactory
+      run:  ls -ltr | grep exec
+
     - name: export version
       id: app-version
       run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
