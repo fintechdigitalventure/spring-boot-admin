@@ -47,6 +47,14 @@ jobs:
       #run: mvn clean deploy -Ddocker.registry=ghcr.io/fintechdigitalventure
       run:  mvn clean install;du -a | grep -i jar
 
+    - name: Save artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifact
+        path: target/docker/evryfs/spring-boot-admin/0.0.0-SNAPSHOT/build/maven/*.jar
+        if-no-files-found: error
+        retention-days: 1
+
     - name: export version
       id: app-version
       run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
