@@ -44,7 +44,7 @@ jobs:
         echo $CR_PAT | docker login ghcr.io -u ${{ secrets.GLOBAL_DOCKER_USERNAME }} --password-stdin
 
     - name: Run build
-      run: mvn clean deploy -Ddocker.registry=ghcr.io/digitaltitransversal
+      run: mvn clean deploy -Ddocker.registry=ghcr.io/fintechdigitalventure
       #run:  mvn clean install
 
     - name: export version
