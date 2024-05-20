@@ -54,6 +54,14 @@ jobs:
         path: target/docker/evryfs/spring-boot-admin/0.0.0-SNAPSHOT/build/maven/*.jar
         if-no-files-found: error
         retention-days: 1
+        
+    - name: Save maven directoty
+      uses: actions/upload-artifact@v3
+      with:
+        name: maven
+        path: target/docker/evryfs/spring-boot-admin/0.0.0-SNAPSHOT/build/maven
+        if-no-files-found: error
+        retention-days: 1
 
     - name: export version
       id: app-version
